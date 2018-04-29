@@ -31,7 +31,7 @@ class CustomViewHolder(val view :View, var topic: Topic? = null): RecyclerView.V
 
     init {
         view.setOnClickListener{
-            val intent = Intent(view.context, TopicOverViewActivity::class.java)
+            val intent = Intent(view.context, MultiUseActivity::class.java)
             intent.putExtra("topicObj", topic)
             view.context.startActivity(intent)
         }
