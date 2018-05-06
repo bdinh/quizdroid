@@ -40,7 +40,7 @@ class AnswerFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        val prevQuestion = topic?.questions?.get(this.index as Int) as Question
+        val prevQuestion = topic?.questions?.get(this.index as Int) as Quiz
         val correctAnswer = prevQuestion.choices.get(prevQuestion.answer)
         var newCorrect = this.correct as Int
 
