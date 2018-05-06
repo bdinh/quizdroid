@@ -32,7 +32,7 @@ class TopicsFragment : Fragment() {
         super.onStart()
         textView_topicOverview_question_count.text = this.topic?.questions?.size.toString()
         textView_topicOverview_title.text = this.topic?.title
-        textView_topicOverview_description.text = this.topic?.description
+        textView_topicOverview_description.text = this.topic?.longDescription
         button_topicOverview_begin.setOnClickListener {
             beginTopicQuizWrapper(this.topic)
         }

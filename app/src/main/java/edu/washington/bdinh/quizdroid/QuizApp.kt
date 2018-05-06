@@ -2,7 +2,7 @@ package edu.washington.bdinh.quizdroid
 
 import android.util.Log
 
-class QuizApp()  : android.app.Application() {
+class QuizApp  : android.app.Application() {
 
     companion object {
         val quizData = QuizData()
@@ -18,7 +18,9 @@ class QuizApp()  : android.app.Application() {
                     arrayOf("Tilde", "PI", "Delta", "Euler-Mascheroni constant"), 1)
 
             val topicMath: Topic = Topic("Math",
-                    "A comprehensive set of math questions",
+                    "",
+                    "A set of math questions",
+                    "A comprehensive set of math questions that will exercise your math knowledge",
                     arrayOf(questionMath1, questionMath2, questionMath3))
 
             this.quizData.add(topicMath)
@@ -34,7 +36,9 @@ class QuizApp()  : android.app.Application() {
                             "A spaece shuttle being launched", "A jet lifting off a runway"), 1)
 
             val topicPhysics: Topic = Topic("Physics",
-                    "A comprehensive set of physics questions",
+                    "",
+                    "A set of physics questions",
+                    "A comprehensive set of physics questions that will exercise your physics knowledge",
                     arrayOf(questionPhysics1, questionPhysics2, questionPhysics3))
 
             this.quizData.add(topicPhysics)
@@ -50,14 +54,16 @@ class QuizApp()  : android.app.Application() {
                             "Terrax", "Thanos"), 3)
 
             val topicMarvel: Topic = Topic("Marvel",
-                    "A comprehensive set of Marvel questions",
+                    "",
+                    "A set of Marvel questions",
+                    "A comprehensive set of Marvel questions that will exercise your MCU knowledge",
                     arrayOf(questionMarvel1, questionMarvel2, questionMarvel3))
 
             this.quizData.add(topicMarvel)
         }
 
-        fun getTopicRepository(): QuizData {
-            return this.quizData
+        fun getTopicRepository(): MutableList<Topic> {
+            return this.quizData.get()
         }
     }
 
@@ -65,14 +71,5 @@ class QuizApp()  : android.app.Application() {
     override fun onCreate() {
         super.onCreate()
         Log.i("QUIZAPP", "onCreate event fired")
-
     }
-}
-
-
-interface TopicRepository {
-    fun add(topic: Topic)
-    fun update(topic: Topic)
-    fun remove(topic: Topic)
-    fun get() :MutableList<Topic>
 }
